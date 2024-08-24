@@ -50,7 +50,7 @@ const Header: React.FC = () => {
                             return (
                                 <NavigationMenuItem key={index}>
                                     <Link href={menu?.href} className="capitalize">
-                                        <NavigationMenuLink className={navigationMenuTriggerStyle() }>{menu?.title}</NavigationMenuLink>
+                                        <NavigationMenuLink className={`bg-transparent ${navigationMenuTriggerStyle() }`}>{menu?.title}</NavigationMenuLink>
                                     </Link>
                                 </NavigationMenuItem>
                             )
