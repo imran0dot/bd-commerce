@@ -6,6 +6,7 @@ import "./globals.css";
 import { Provider } from "react-redux";
 import { AppStore, store } from "../redux/store";
 import { useRef } from "react";
+import Header from "@/components/Header/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Provider store={storeRef.current}>
+          <Header />
           {children}
         </Provider>
       </body>
