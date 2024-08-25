@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import { AppStore, store } from "../redux/store";
 import { useRef } from "react";
 import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
         <Provider store={storeRef.current}>
           <Header />
           {children}
+          <Footer />
         </Provider>
       </body>
     </html>

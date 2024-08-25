@@ -1,6 +1,4 @@
 'use client'
-
-import { ArrowDown } from 'lucide-react'
 import { useForm, SubmitHandler  } from 'react-hook-form';
 
 interface FormValues {

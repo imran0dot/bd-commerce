@@ -9,6 +9,7 @@ import {
     NavigationMenuList,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { ShoppingBag, ShoppingCartIcon } from "lucide-react";
 
 
 type TNavigationMenu = {
@@ -42,7 +43,7 @@ const navigationMenu: TNavigationMenu[] = [
 
 const Header: React.FC = () => {
     return (
-        <div>
+        <div className="grid grid-cols-3 py-5 shadow-sm">
             <NavigationMenu>
                 <NavigationMenuList>
                     {
@@ -58,6 +59,16 @@ const Header: React.FC = () => {
                     }
                 </NavigationMenuList>
             </NavigationMenu>
+
+            <Link href="/" className="flex justify-center items-center gap-3">
+                <ShoppingBag />
+                BD-COMMERCE
+            </Link>
+
+            <div className="flex justify-center items-center gap-3">
+                <ShoppingCartIcon />
+                Cart
+            </div>
         </div>
     );
 };
