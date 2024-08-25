@@ -1,7 +1,5 @@
+import Hero from "@/components/Hero/Hero";
 import { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-
 
 
 export const metadata: Metadata = {
@@ -13,6 +11,10 @@ export default function Home() {
   return (
     <div>
 
+      {/* Hero Section */}
+      <div>
+       <Hero />
+      </div>
     </div>
   )
 }

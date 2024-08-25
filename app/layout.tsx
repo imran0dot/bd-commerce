@@ -18,18 +18,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const storeRef = useRef<AppStore>()
-  if (!storeRef.current) {
-    storeRef.current = store()
-  }
+  // if (!storeRef.current) {
+  //   storeRef.current = store()
+  // }
 
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Provider store={storeRef.current}>
+      <body className={`${inter.className} max-w-[1580px] m-auto`}>
+        {/* <Provider store={storeRef.current}> */}
           <Header />
           {children}
           <Footer />
-        </Provider>
+        {/* </Provider> */}
       </body>
     </html>
   );
