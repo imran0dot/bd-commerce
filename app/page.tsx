@@ -1,5 +1,9 @@
 import Hero from "@/components/Hero/Hero";
+import Section_title from "@/components/Section_title/Section_title";
 import { Metadata } from "next";
+import Image from "next/image";
+import latest from '../public/assets/images/Home/latest.png'
+import best_seller from '../public/assets/images/Home/best.png'
 
 
 export const metadata: Metadata = {
@@ -15,6 +19,24 @@ export default function Home() {
       <div>
        <Hero />
       </div>
+
+      {/* LATEST COLLECTIONS */}
+      <div className="my-20 space-y-5">
+        <Section_title subTitle="LATEST" title="COLLECTIONS" description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the."} />
+        <div >
+          <Image src={latest} alt="" />
+        </div>
+      </div>
+
+      
+      {/* LATEST COLLECTIONS */}
+      <div className="my-20 space-y-5">
+        <Section_title subTitle="BEST " title="SELLERS" description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the."} />
+        <div >
+          <Image src={best_seller} alt="" />
+        </div>
+      </div>
+
     </div>
   )
 }
