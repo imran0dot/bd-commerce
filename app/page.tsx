@@ -4,6 +4,9 @@ import { Metadata } from "next";
 import Image from "next/image";
 import latest from '../public/assets/images/Home/latest.png'
 import best_seller from '../public/assets/images/Home/best.png'
+import Exchange from '../public/assets/icon/Exchange.png'
+import Returns from '../public/assets/icon/Return.png'
+import Support from '../public/assets/icon/support.png'
 
 
 export const metadata: Metadata = {
@@ -30,13 +33,45 @@ export default function Home() {
 
       
       {/* LATEST COLLECTIONS */}
-      <div className="my-20 space-y-5">
+      <div className="my-10 lg:my-20 space-y-5">
         <Section_title subTitle="BEST " title="SELLERS" description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the."} />
         <div >
           <Image src={best_seller} alt="" />
         </div>
       </div>
 
+      {/* Policy */}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
+          <div className="flex flex-col items-center justify-center space-y-2">
+            <Image src={Exchange} width={50} alt="" />
+            <h4 className="font-semibold">Easy Exchange Policy</h4>
+            <p className="text-gray-500">We offer hassle free exchange policy</p>
+          </div>
+
+          <div className="flex flex-col items-center justify-center space-y-2 p-5 border-l border-r">
+            <Image src={Returns} width={50} alt="" />
+            <h4 className="font-semibold">7 Days Return Policy</h4>
+            <p className="text-gray-500">We provide 7 days free return policy</p>
+          </div>
+
+          <div className="flex flex-col items-center justify-center space-y-2 p-5">
+            <Image src={Support} width={50} alt="" />
+            <h4 className="font-semibold">Best customer support</h4>
+            <p className="text-gray-500">we provide 24/7 customer support</p>
+          </div>
+      </div>
+
+      {/* Subscribe  */}
+
+      <div className="p-3 lg:p-0 flex flex-col items-center justify-center space-y-5 my-10">
+        <h1 className="text-2xl font-semibold">Subscribe now & get 20% off</h1>
+        <p className="text-gray-500">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        <form className="flex flex-wrap justify-center lg:w-[60%] mx-auto space-y-5 lg:space-y-0">
+          <input type="email" placeholder="Your Email Address" className="w-full lg:w-[80%] px-5 py-2.5 border outline-none" />
+          <button type="submit" className="flex items-center rounded-md justify-center bg-black text-white px-5 py-2.5 uppercase lg:rounded-r-md lg:rounded-l-none">Subscribe</button>
+        </form>
+      </div>
     </div>
   )
 }
