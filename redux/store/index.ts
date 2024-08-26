@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { woocommerceApi } from '../api/product.api';
+import { productsApi } from '../api/product.api';
 
 export const store = configureStore({
   reducer: {
-    [woocommerceApi.reducerPath]: woocommerceApi.reducer,
+    [productsApi.reducerPath]: productsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(woocommerceApi.middleware),
+    getDefaultMiddleware().concat(productsApi.middleware),
 });
 
 // Infer the type of the store

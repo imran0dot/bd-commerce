@@ -1,47 +1,25 @@
-import { createApi } from "@reduxjs/toolkit/query/react";
-import axios from "axios";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-// Create the axiosBaseQuery function
-const axiosBaseQuery =
-  ({ baseUrl } = { baseUrl: '' }) =>
-  async ({ url, method, data, params }) => {
-    try {
-      const result = await axios({
-        url: baseUrl + url,
-        method,
-        data,
-        params,
-        auth: {
-          username: process.env.CONSUMER_KEY || '',
-          password: process.env.CONSUMER_SECRET || '',
-        },
-      });
-      return { data: result.data };
-    } catch (axiosError) {
-      return {
-        error: {
-          status: axiosError.response?.status || 500,
-          data: axiosError.response?.data || axiosError.message,
-        },
-      };
+const username = 'ck_2e42ce35f8a88be16a1613d6d016d6523d8d9558';
+const password = 'cs_7d7936a2da1b765dbb267625cb15d8a40e0010e3';
+
+const credentials = btoa(`${username}:${password}`);
+
+// Define the API
+export const productsApi = createApi({
+  reducerPath: 'productsApi',
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://suisota.com/wp-json/wc/v3',
+    prepareHeaders: (headers) => {
+      headers.set('Authorization', `Bearer ${credentials}`);
+      return headers;
     }
-  };
-
-// Create the RTK Query API slice using the axiosBaseQuery function
-export const woocommerceApi = createApi({
-  reducerPath: 'woocommerceApi',
-  baseQuery: axiosBaseQuery({
-    baseUrl: 'https://suisota.com/wp-json/wc/v3/',
   }),
   endpoints: (builder) => ({
-    getProducts: builder.query({
-      query: () => ({
-        url: 'products',
-        method: 'GET',
-      }),
+    fetchProducts: builder.query({
+      query: () => 'products',
     }),
   }),
 });
 
-// Export the auto-generated hook for the `getProducts` query endpoint
-export const { useGetProductsQuery } = woocommerceApi;
+export const { useFetchProductsQuery } = productsApi;
