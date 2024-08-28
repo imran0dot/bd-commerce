@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   const storeRef = useRef<AppStore>()
   if (!storeRef.current) {
-    storeRef.current = store()
+    storeRef.current = store;
   }
 
   return (

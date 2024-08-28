@@ -50,9 +50,7 @@ const Header: React.FC = () => {
                         navigationMenu?.map((menu, index) => {
                             return (
                                 <NavigationMenuItem key={index}>
-                                    <Link href={menu?.href} className="capitalize">
-                                        <NavigationMenuLink className={`bg-transparent ${navigationMenuTriggerStyle() }`}>{menu?.title}</NavigationMenuLink>
-                                    </Link>
+                                    <Link href={menu?.href} className={`bg-transparent capitalize ${navigationMenuTriggerStyle()}`}>{menu?.title} </Link>
                                 </NavigationMenuItem>
                             )
                         })
@@ -65,9 +63,11 @@ const Header: React.FC = () => {
                 BD-COMMERCE
             </Link>
 
-            <div className="flex justify-center items-center gap-3">
-                <ShoppingCartIcon />
-                Cart
+            <div  className="flex justify-center items-center">
+                <Link href="/cart" className="flex gap-3">
+                    <ShoppingCartIcon />
+                    Cart
+                </Link>
             </div>
         </div>
     );
