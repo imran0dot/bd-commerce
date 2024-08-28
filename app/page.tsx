@@ -1,3 +1,5 @@
+import Hero from "@/components/Hero/Hero";
+import Section_title from "@/components/Section_title/Section_title";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";

@@ -6,11 +6,11 @@ import SectionTitle from '@/components/SectionTitle/SectionTitle';
 
 const page = () => {
     return (
-        <div className='my-8'>
+        <div className='my-8 mx-auto w-10/12'>
             <SectionTitle subTitle='ABOUT ' title='US' />
 
             {/* About Content */}
-            <div className='grid grid-cols-1 lg:grid-cols-8 gap-5 my-10'>
+            <div className='flex gap-5 my-10'>
                 <div className='lg:col-span-2 '>
                     <Image src={About_img} alt='About' />
                 </div>
@@ -57,3 +57,5 @@ const page = () => {
         </div>
     );
 };
+
+export default page;
