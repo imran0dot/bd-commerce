@@ -25,11 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} max-w-[1580px] m-auto`}>
-        {/* <Provider store={storeRef.current}> */}
+        <Provider store={storeRef.current}> 
           <Header />
           {children}
           <Footer />
-        {/* </Provider> */}
+        </Provider> 
       </body>
     </html>
   );

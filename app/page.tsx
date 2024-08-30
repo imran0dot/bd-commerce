@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import HeroImg from '@/public/assets/images/home/hero_img.png'
+import Products from "@/components/Products/Products";
 
 
 export const metadata: Metadata = {
@@ -13,7 +14,9 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
+
     <div>
+
       <div className='grid grid-cols-1 md:grid-cols-2'>
         <div className='flex items-center justify-center' >
           <div className='space-y-5'>
@@ -37,6 +40,8 @@ export default function Home() {
           />
         </div>
       </div>
+
+      <Products />
     </div>
   )
 }
