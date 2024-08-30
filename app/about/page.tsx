@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import About_img from '../../public/assets/images/about/about_img.png'
+// import About_img from '../../public/assets/images/About/aboutImage.png'
 import Subscription from '@/components/Subscription/Subscription';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
 
@@ -11,9 +11,9 @@ const page = () => {
 
             {/* About Content */}
             <div className='flex gap-5 my-10'>
-                <div className='lg:col-span-2 '>
-                    <Image src={About_img} alt='About' />
-                </div>
+                {/* <div className='lg:col-span-2 '>
+                    <Image src={About_img?.src} alt='About' />
+                </div> */}
                 <div className='lg:col-span-4 p-5 flex flex-col justify-center'>
                     <p className='text-sm text-gray-600'>Forever was born out of a passion for innovation and a desire to revolutionize the way people shop online. Our journey began with a simple idea: to provide a platform where customers can easily discover, explore, and purchase a wide range of products from the comfort of their homes.</p>
                     <br />

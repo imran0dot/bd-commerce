@@ -1,9 +1,7 @@
-import Hero from "@/components/Hero/Hero";
 import Section_title from "@/components/Section_title/Section_title";
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import HeroImg from '@/public/assets/images/home/hero_img.png'
+import Subscription from "@/components/Subscription/Subscription";
 
 
 export const metadata: Metadata = {
@@ -36,6 +34,41 @@ export default function Home() {
             alt="Picture of the author"
           />
         </div>
+      </div>
+
+      {/* LATEST COLLECTIONS */}
+
+      <div className="mt-16">
+
+        <div className="mb-10">
+          <Section_title subTitle="LATEST" title="COLLECTIONS" description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the." />
+        </div>
+
+        <div>
+          <Image src={latest} alt="LATEST COLLECTIONS" />
+        </div>
+
+      </div>
+
+
+
+      {/* BEST SELLERS */}
+
+      <div className="my-10">
+        <div className="mb-10">
+          <Section_title subTitle="BEST" title="SELLERS" description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the." />
+        </div>
+
+        <div>
+          <Image src={best} alt="LATEST COLLECTIONS" />
+        </div>
+
+      </div>
+
+      {/* Subscribe */}
+
+      <div>
+        <Subscription />
       </div>
     </div>
   )
