@@ -1,23 +1,30 @@
 'use client'
-import { useGetProductsQuery } from '@/redux/api/stapi.product';
+import { useGetProductsByCategoryQuery, useGetProductsQuery } from '@/redux/api/stapi.product';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductSkeleton from '../shared/ProductSkeleton/ProductSkeleton';
 import ProductCard from '../shared/ProductCard/ProductCard';
+import { useAppSelector } from '@/redux/hooks/redux.hook';
 
-interface TProduct {
-
-}
 
 
 const Products: React.FC = () => {
-    const { data, error, isLoading } = useGetProductsQuery({});
-    let content: React.JSX.Element = <div></div>;
+    // const { data, error, isLoading, refetch } = useGetProductsQuery({});
+    const selector: {category: string} = useAppSelector(selector => selector.categoryFilter);
+    const { data, error, isLoading, refetch } = useGetProductsByCategoryQuery({ category: selector?.category });
 
+    useEffect(() => {
+        if (selector.category) {
+            console.log(selector.category)
+        }
+        refetch;
+    }, [selector])
+    
+    let content: React.JSX.Element = <div></div>;
     // while data is loading 
-    if (isLoading) {
+    if (!isLoading) {
         content =
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5">
                 <ProductSkeleton />
                 <ProductSkeleton />
                 <ProductSkeleton />
@@ -26,11 +33,13 @@ const Products: React.FC = () => {
     };
 
     if (!error && !isLoading) {
-        console.log(data.data);
-        content = data?.data?.map((product: TProduct, index: number) => <ProductCard key={index} data={product} />);
+        content =
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5">{
+                data?.data?.map((product: {}, index: number) => <ProductCard key={index} data={product} />)
+            }</div>;
     }
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div>
             {content}
         </div>
     );

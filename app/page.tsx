@@ -1,11 +1,11 @@
 import Hero from "@/components/Hero/Hero";
-import Section_title from "@/components/Section_title/Section_title";
+import Section_title from "@/components/shared/Section_title/Section_title";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import HeroImg from '@/public/assets/images/home/hero_img.png'
 import Products from "@/components/Products/Products";
-
+import Container from "@/components/shared/Container/Container";
 
 export const metadata: Metadata = {
   title: "Bangladesh Easy E-commerce",
@@ -14,8 +14,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-
-    <div>
+    <div >
 
       <div className='grid grid-cols-1 md:grid-cols-2'>
         <div className='flex items-center justify-center' >
@@ -41,7 +40,9 @@ export default function Home() {
         </div>
       </div>
 
-      <Products />
-    </div>
+      <Container>
+        <Products />
+      </Container>
+    </div >
   )
 }

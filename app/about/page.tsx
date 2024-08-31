@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import About_img from '../../public/assets/images/about/about_img.png'
 import Subscription from '@/components/Subscription/Subscription';
-import SectionTitle from '@/components/SectionTitle/SectionTitle';
+import SectionTitle from '@/components/shared/SectionTitle/SectionTitle';
 
 const page = () => {
     return (

@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { config } from '@/config';
 
 export const productsApi = createApi({
     reducerPath: "strapi-product",
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:1337/api'
+        baseUrl: config.backendUrl
     }),
     endpoints: (builder) => ({
         getProducts: builder.query({
@@ -11,11 +12,26 @@ export const productsApi = createApi({
         }),
         getProductsBySlug: builder.query({
             query: (id) => `products/${id}`
+        }),
+        getProductsByCategory: builder.query({
+            query: ({category}) => {
+                let url = '';
+                if(category){
+                    console.log('hi im category')
+                    url = `products?populate=*&filters[categories][category][$eq]=${category}`
+                    // url =  'products?populate=product_image'
+                }else{
+                    url =  'products?populate=product_image'
+                };
+                return url
+            }
         })
     })
 });
 
-console.log(process.env.BACKEND_URI)
-
-export const { useGetProductsQuery, useGetProductsBySlugQuery } = productsApi;
+export const {
+    useGetProductsQuery,
+    useGetProductsBySlugQuery,
+    useGetProductsByCategoryQuery
+} = productsApi;
 
